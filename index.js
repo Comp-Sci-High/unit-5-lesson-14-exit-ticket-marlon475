@@ -30,7 +30,15 @@ const potionSchema = new mongoose.Schema({
 
 const Potion = mongoose.model("Potion", potionSchema, "Potions")
 
-// Create a dynamic route handler that updates a specific potion's color based on its label [2 pts]
-// e.g. /update/polyjuice will update the color of the polyjuice potion to pearly white
-// e.g. /update/amortentia will update the color of the Amortentia potion to golden purple
+// In script.js (NOT THIS FILE), write a function that creates a new potion by calling this route
+app.post("/create-potion", function(){
+  const newPotion = new Potion({
+    label: req.body.label,
+    effect: req.body.effect,
+    ingredients: req.body.ingredients,
+    color: req.body.color,
+    isExplosive: req.body.isExplosive
+  }).save()
 
+  res.json(newPotion)
+})
