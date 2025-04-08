@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 app.use(express.json())
 
 async function startServer(){
-    await mongoose.connect("mongodb+srv://SE12:CSH2025@cluster0.xfcbvkb.mongodb.net/potions?retryWrites=true&w=majority&appName=Cluster0")
+    await mongoose.connect("mongodb+srv://SE12:CSH2025@cluster0.xfcbvkb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     app.listen(3000, ()=>{
       console.log("Server is running")
     })
